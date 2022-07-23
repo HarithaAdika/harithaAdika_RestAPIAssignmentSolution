@@ -10,18 +10,13 @@ import com.greatlearning.employeemanagement.service.EmployeeDeleteService;
 @RestController
 @RequestMapping("/employees")
 public class EmployeeDeleteController {
-	
+
 	@Autowired
 	EmployeeDeleteService deleteService;
-	
+
 	@DeleteMapping("/delete")
 	public String deleteEmployeeById(int id) {
 		return deleteService.deleteEmployeeById(id);
 	}
-	
-	
-	
-	
-	
 
 }

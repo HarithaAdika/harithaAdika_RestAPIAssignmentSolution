@@ -14,19 +14,19 @@ import com.greatlearning.employeemanagement.entity.User;
 public class MyUserDetails implements UserDetails {
 
 	private User user;
-	
+
 	public MyUserDetails(User user) {
 		this.user = user;
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<Role> roles = user.getRoles();
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		for(Role role : roles) {
+		for (Role role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getName()));
 		}
-		return authorities;	
+		return authorities;
 	}
 
 	@Override

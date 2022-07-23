@@ -13,31 +13,28 @@ import com.greatlearning.employeemanagement.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Override
-	public List<User> getAllUsers(){
+	public List<User> getAllUsers() {
 		return userRepository.findAll();
 	}
-	
+
 	@Override
 	public User saveNewUser(User user) {
-		List<Role> roles =user.getRoles();
-		if(roles != null) {
-			for(Role role : roles) {
+		List<Role> roles = user.getRoles();
+		if (roles != null) {
+			for (Role role : roles) {
 				roleRepository.saveAndFlush(role);
 			}
 		}
 		return userRepository.saveAndFlush(user);
-		
+
 	}
-	
-	
-	
 
 }

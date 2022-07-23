@@ -10,7 +10,7 @@ public interface EmployeeCreateService {
 	String addNewEmployee(Employee employee);
 
 	String addMultipleNewEmployees(List<Employee> employees);
-	
+
 	String editEmployeeById(int employeeId, Employee employee);
 
 }

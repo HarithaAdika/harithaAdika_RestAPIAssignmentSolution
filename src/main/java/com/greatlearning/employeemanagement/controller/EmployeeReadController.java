@@ -15,20 +15,20 @@ import com.greatlearning.employeemanagement.service.EmployeeReadService;
 @RestController
 @RequestMapping("/employees")
 public class EmployeeReadController {
-	
+
 	@Autowired
 	EmployeeReadService readService;
-	
+
 	@GetMapping("/list")
 	public List<Employee> getAllEmployees() {
 		return readService.getAllEmployees();
 	}
-	
+
 	@GetMapping("/getEmployeesByFirstName")
 	public List<Employee> getEmployeesByFirstName(String firstName) {
 		return readService.getEmployeesByFirstName(firstName);
 	}
-	
+
 	@GetMapping("/getEmployeeById")
 	public Optional<Employee> getEmployeeById(int id) {
 		return readService.getEmployeeById(id);
@@ -38,7 +38,7 @@ public class EmployeeReadController {
 	public List<Employee> getEmployeesCustomSortedByFirstName(Direction order) {
 		return readService.getEmployeesCustomSortedByFirstName(order);
 	}
-	
+
 	@GetMapping("/defaultsort")
 	public List<Employee> getEmployeesSortedByFirstName() {
 		return readService.getEmployeesSortedByFirstName();

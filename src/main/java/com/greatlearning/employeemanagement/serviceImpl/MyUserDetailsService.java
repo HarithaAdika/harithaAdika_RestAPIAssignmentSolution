@@ -11,17 +11,17 @@ import com.greatlearning.employeemanagement.repository.UserRepository;
 import com.greatlearning.employeemanagement.security.MyUserDetails;
 
 @Service
-public class MyUserDetailsService implements UserDetailsService{
-	
+public class MyUserDetailsService implements UserDetailsService {
+
 	@Autowired
 	UserRepository userRepository;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username);
-		if(user == null) {
+		if (user == null) {
 			throw new UsernameNotFoundException("User is not available");
-		}
-		else {
+		} else {
 			return new MyUserDetails(user);
 		}
 	}

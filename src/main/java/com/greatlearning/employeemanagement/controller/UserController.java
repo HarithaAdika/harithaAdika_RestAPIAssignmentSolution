@@ -16,19 +16,18 @@ import com.greatlearning.employeemanagement.service.UserService;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
-	
+
 	@GetMapping("/list")
 	public List<User> getUsers() {
 		return userService.getAllUsers();
 	}
-	
+
 	@PostMapping("/addUser")
 	public User addNewUser(User user) {
 		return userService.saveNewUser(user);
-	} 
-	 
+	}
 
 }

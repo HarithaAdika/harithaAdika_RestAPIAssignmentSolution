@@ -10,11 +10,11 @@ import com.greatlearning.employeemanagement.service.EmployeeDeleteService;
 public class EmployeeDeleteServiceImpl implements EmployeeDeleteService {
 	@Autowired
 	EmployeeRepository deleteRepository;
-	
+
 	@Override
 	public String deleteEmployeeById(int id) {
 		deleteRepository.deleteById(id);
-		return "Deleted Employee of Id:"+ id +" Successfully";
+		return "Deleted Employee of Id:" + id + " Successfully";
 	}
 
 }

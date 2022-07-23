@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.greatlearning.employeemanagement.serviceImpl.MyUserDetailsService;
 
-
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -42,44 +41,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		mgr.authenticationProvider(getAuthenticationProvider());
 	}
 
-//	@Override
-//	public void configure(HttpSecurity http) throws Exception {
-//		http.authorizeRequests()
-//		.antMatchers("/", "/employees/list","/employees/getEmployeesByFirstName","/employees/getEmployeeById","/employees/sort")
-//		.hasAnyRole()
-//		//.hasAnyAuthority("USER", "ADMIN")
-//		.antMatchers("/employees/addSingleEmployee","/employees/update", "/employees/delete").hasAnyAuthority("ADMIN")
-//		.anyRequest().authenticated()
-//		.and()
-//		.formLogin().loginProcessingUrl("/login").successForwardUrl("/employees/list").permitAll()
-//		.and()
-//		.logout().logoutSuccessUrl("/login").permitAll()
-//		.and()
-//		.exceptionHandling()
-//		.and()
-//		.cors()
-//		.and()
-//		.csrf()
-//		.disable();
-//	}
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests()
-			.antMatchers("/users/**", "/roles/**","/employees/addSingleEmployee", 
-					"/employees/update", "/employees/delete")
-			.hasAnyAuthority("ADMIN")
-			.anyRequest().authenticated()
-			.and()
-			.httpBasic()
-			.and()
-			.formLogin();
-//			.formLogin().loginProcessingUrl("/login").successForwardUrl("/employees/list").permitAll()
-//			.and()
-//			.logout().logoutSuccessUrl("/login").permitAll();
+				.antMatchers("/users/**", "/roles/**", "/employees/addSingleEmployee", "/employees/update",
+						"/employees/delete")
+				.hasAnyAuthority("ADMIN")
+				.anyRequest().authenticated()
+				.and()
+				.httpBasic()
+				.and()
+				.formLogin();
+
 
 	}
+
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/h2-console/**");

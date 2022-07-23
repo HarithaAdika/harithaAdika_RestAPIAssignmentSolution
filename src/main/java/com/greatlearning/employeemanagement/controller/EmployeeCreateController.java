@@ -15,27 +15,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.greatlearning.employeemanagement.entity.Employee;
 import com.greatlearning.employeemanagement.service.EmployeeCreateService;
 
-
 @RestController
 @RequestMapping("/employees")
 public class EmployeeCreateController {
-	
+
 	@Autowired
 	EmployeeCreateService createService;
-	
+
 	@PostMapping("/addSingleEmployee")
 	public String addSingleEmployee(Employee employee) {
 		return createService.addNewEmployee(employee);
 	}
-	
+
 	@PostMapping("/addMultipleEmployee")
 	public String addMultipleEmployee(@RequestBody List<Employee> employees) {
 		return createService.addMultipleNewEmployees(employees);
 	}
-	
+
 	@PutMapping("/updateEmployeeById")
-	public String editEmployeeById(int id, 
-			@RequestBody Employee employee) {
+	public String editEmployeeById(int id, @RequestBody Employee employee) {
 		String editedEmployee = createService.editEmployeeById(id, employee);
 		return editedEmployee;
 	}

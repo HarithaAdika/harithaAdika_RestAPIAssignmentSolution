@@ -15,20 +15,18 @@ import com.greatlearning.employeemanagement.service.RoleService;
 @RestController
 @RequestMapping("/roles")
 public class RoleController {
-	
+
 	@Autowired
 	RoleService roleService;
-	
+
 	@GetMapping("/list")
 	public List<Role> getRoles() {
 		return roleService.getAllRoles();
 	}
-	
+
 	@PostMapping("/addRole")
 	public Role addNewRole(Role role) {
 		return roleService.saveNewRole(role);
 	}
-	
-	
 
 }
