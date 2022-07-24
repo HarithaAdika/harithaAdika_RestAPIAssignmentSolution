@@ -45,7 +45,7 @@ public class EmployeeManagementApplication implements CommandLineRunner {
 	}
 
 	private void employeeCreateServiceImplMethodsExecution() {
-		log.info("Adding Single Employee details ->{}", employeeCreateServiceImpl.addNewEmployee((Employee) Employee
+		log.info("Adding Single Employee details ->{}", employeeCreateServiceImpl.addNewEmployee((List<Employee>) Employee
 				.builder().id(11).firstName("Sharan").lastName("Sharma").email("sharansharma@gmai.com").build()));
 
 		List<Employee> employees = new ArrayList<>();

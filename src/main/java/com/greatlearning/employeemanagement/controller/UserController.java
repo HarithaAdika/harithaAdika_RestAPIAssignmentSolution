@@ -3,6 +3,9 @@ package com.greatlearning.employeemanagement.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,9 +28,10 @@ public class UserController {
 		return userService.getAllUsers();
 	}
 
-	@PostMapping("/addUser")
-	public User addNewUser(User user) {
+	@PostMapping(value="/addUser",consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+	public User addNewUser(@RequestBody User user) {
 		return userService.saveNewUser(user);
 	}
+	
 
 }

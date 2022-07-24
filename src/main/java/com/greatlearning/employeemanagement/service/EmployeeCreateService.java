@@ -7,7 +7,7 @@ import com.greatlearning.employeemanagement.entity.Employee;
 
 public interface EmployeeCreateService {
 
-	String addNewEmployee(Employee employee);
+	String addNewEmployee(List<Employee> employee);
 
 	String addMultipleNewEmployees(List<Employee> employees);
 

@@ -25,8 +25,9 @@ public class RoleController {
 	}
 
 	@PostMapping("/addRole")
-	public Role addNewRole(Role role) {
+	public String addNewRole(@RequestBody List<Role> role) {
 		return roleService.saveNewRole(role);
+		
 	}
 
 }

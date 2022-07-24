@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.greatlearning.employeemanagement.entity.Employee;
 import com.greatlearning.employeemanagement.repository.EmployeeRepository;
@@ -17,8 +19,8 @@ public class EmployeeCreateServiceImpl implements EmployeeCreateService {
 	EmployeeRepository	employeeRepository;
 	
 	@Override
-	public String addNewEmployee(Employee employee) {
-		employeeRepository.saveAndFlush(employee);
+	public String addNewEmployee(List<Employee> employee) {
+		employeeRepository.saveAllAndFlush(employee);
 		return "New Employee saved successfully";
 		
 	}

@@ -8,6 +8,6 @@ public interface RoleService {
 
 	List<Role> getAllRoles();
 
-	Role saveNewRole(Role role);
+	String saveNewRole(List<Role> role);
 
 }

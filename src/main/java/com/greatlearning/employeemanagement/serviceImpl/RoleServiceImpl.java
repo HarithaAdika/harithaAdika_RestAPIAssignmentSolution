@@ -21,8 +21,9 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Role saveNewRole(Role role) {
-		return roleRepository.saveAndFlush(role);
+	public String saveNewRole(List<Role> role) {
+		roleRepository.saveAllAndFlush(role);
+		return "New Role saved successfully";
 	}
 
 }
